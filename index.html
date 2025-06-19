@@ -14,6 +14,13 @@
             background-color: #f9f9f9;
             color: #333;
             line-height: 1.6;
+            /* Add padding to the top to prevent content from being hidden by the fixed navbar */
+            padding-top: 70px;
+        }
+
+        .navbar {
+            background-color: rgba(249, 249, 249, 0.8);
+            backdrop-filter: blur(10px);
         }
 
         /* Custom Styles */
@@ -62,12 +69,8 @@
 
         .project-item:hover {
             background-color: rgba(0, 0, 0, 0.02);
-            padding-left: 1rem;
-            margin-left: -1rem;
-            margin-right: -1rem;
-            padding-right: 1rem;
         }
-
+        
         .contact-section {
             background-color: #363636;
             color: white;
@@ -138,16 +141,18 @@
         .social-icon.github:hover {
             background-color: #333;
         }
+
+        section {
+            scroll-margin-top: 70px;
+        }
     </style>
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top">
+<body data-bs-spy="scroll" data-bs-target="#navbarNav">
+    <nav class="navbar navbar-expand-lg fixed-top py-3">
         <div class="container">
-            <a class="navbar-brand" href="#"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <a class="navbar-brand fw-bold" href="#home">Anton Bertillo</a>
+            
+            <div class="collapse navbar-collapse justify-content-end d-none d-lg-flex">
                 <ul class="navbar-nav gap-3">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
@@ -155,19 +160,39 @@
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
+
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
     </nav>
 
+    <div class="offcanvas offcanvas-end d-lg-none" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item"><a class="nav-link fs-5" href="#home" data-bs-dismiss="offcanvas">Home</a></li>
+                <li class="nav-item"><a class="nav-link fs-5" href="#about" data-bs-dismiss="offcanvas">About</a></li>
+                <li class="nav-item"><a class="nav-link fs-5" href="#project" data-bs-dismiss="offcanvas">Project</a></li>
+                <li class="nav-item"><a class="nav-link fs-5" href="#contact" data-bs-dismiss="offcanvas">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+
     <div class="container">
-        <section id="home" class="min-vh-100 d-grid align-items-center py-5">
+        <section id="home" class="min-vh-100 d-flex align-items-center py-5">
             <div class="row align-items-center g-5">
-                <div class="col-md-6 text-center text-md-start">
+                <div class="col-md-6 text-center text-md-start order-2 order-md-1">
                     <h1 class="display-2 fw-bold text-dark">Developer</h1>
                     <p class="fs-4 text-secondary">
                         Hi I'm Anton Bertillo, a passionate <br><b>Front-end Developer & UI/UX Designer</b>
                     </p>
                 </div>
-                <div class="col-md-6 d-flex flex-column align-items-center gap-5">
+                <div class="col-md-6 d-flex flex-column align-items-center gap-5 order-1 order-md-2">
                     <div class="dot-circle" id="dotCircle"></div>
                     <div class="divider-line"></div>
                     <div class="bottom-text">TPI, 1959</div>
@@ -230,71 +255,71 @@
                 <h2 class="h2 text-secondary">List of my projects.</h2>
             </div>
             <div class="list-group list-group-flush">
-                <div class="list-group-item project-item">
+                <div class="list-group-item project-item py-4">
                     <div class="row align-items-center">
                         <div class="col-md-8">
                             <div class="text-secondary text-uppercase small">Direc Business Technologies, Inc. | Intern</div>
-                            <div class="h4 fw-bold text-dark">DWOW</div>
+                            <div class="h4 fw-bold text-dark mb-0">DWOW</div>
                         </div>
-                        <div class="col-md-4 text-md-end">
-                            <a href="https://www.figma.com/proto/wKOQOEXjTvTr2h6Je2bFwy/DWOW?node-id=0-1&t=hywqf4HUUvK3AsKZ-1" class="btn btn-link text-decoration-none">&lt;/Link Web&gt;</a>
-                            <a href="https://www.figma.com/proto/wKOQOEXjTvTr2h6Je2bFwy/DWOW?node-id=114-533&t=FVlYLHXuOqprUhsO-1" class="btn btn-link text-decoration-none">&lt;/Link Mobile&gt;</a>
+                        <div class="col-md-4 text-md-end mt-2 mt-md-0">
+                            <a href="https://www.figma.com/proto/wKOQOEXjTvTr2h6Je2bFwy/DWOW?node-id=0-1&t=hywqf4HUUvK3AsKZ-1" class="btn btn-link text-decoration-none p-1">&lt;/Link Web&gt;</a>
+                            <a href="https://www.figma.com/proto/wKOQOEXjTvTr2h6Je2bFwy/DWOW?node-id=114-533&t=FVlYLHXuOqprUhsO-1" class="btn btn-link text-decoration-none p-1">&lt;/Link Mobile&gt;</a>
                         </div>
                     </div>
                 </div>
-                <div class="list-group-item project-item">
+                <div class="list-group-item project-item py-4">
                     <div class="row align-items-center">
                         <div class="col-md-8">
                             <div class="text-secondary text-uppercase small">Direc Business Technologies, Inc. | Intern</div>
-                            <div class="h4 fw-bold text-dark">AIMS</div>
+                            <div class="h4 fw-bold text-dark mb-0">AIMS</div>
                         </div>
-                        <div class="col-md-4 text-md-end">
-                            <a href="https://www.figma.com/proto/nliqMs77RW7jVsfU7yKL70/AIMS?t=hywqf4HUUvK3AsKZ-1" class="btn btn-link text-decoration-none">&lt;/Link&gt;</a>
+                        <div class="col-md-4 text-md-end mt-2 mt-md-0">
+                            <a href="https://www.figma.com/proto/nliqMs77RW7jVsfU7yKL70/AIMS?t=hywqf4HUUvK3AsKZ-1" class="btn btn-link text-decoration-none p-1">&lt;/Link&gt;</a>
                         </div>
                     </div>
                 </div>
-                <div class="list-group-item project-item">
+                <div class="list-group-item project-item py-4">
                     <div class="row align-items-center">
                         <div class="col-md-8">
                             <div class="text-secondary text-uppercase small">Direc Business Technologies, Inc. | Intern</div>
-                            <div class="h4 fw-bold text-dark">Direc Website</div>
+                            <div class="h4 fw-bold text-dark mb-0">Direc Website</div>
                         </div>
-                        <div class="col-md-4 text-md-end">
-                             <a href="https://www.figma.com/proto/poZrja8pO1v7pTnuqO2V85/Draft-Direc-Website?node-id=314-273&t=eyhxpC3o6z6LIoW0-1" class="btn btn-link text-decoration-none">&lt;/Link&gt;</a>
+                        <div class="col-md-4 text-md-end mt-2 mt-md-0">
+                             <a href="https://www.figma.com/proto/poZrja8pO1v7pTnuqO2V85/Draft-Direc-Website?node-id=314-273&t=eyhxpC3o6z6LIoW0-1" class="btn btn-link text-decoration-none p-1">&lt;/Link&gt;</a>
                         </div>
                     </div>
                 </div>
-                <div class="list-group-item project-item">
+                <div class="list-group-item project-item py-4">
                     <div class="row align-items-center">
                         <div class="col-md-8">
                             <div class="text-secondary text-uppercase small">New Ventures 2024</div>
-                            <div class="h4 fw-bold text-dark">WashPro</div>
+                            <div class="h4 fw-bold text-dark mb-0">WashPro</div>
                         </div>
-                        <div class="col-md-4 text-md-end">
-                            <a href="https://www.figma.com/proto/Ad41H318DdlVh0lmYWduyH/WashPro?node-id=38-0&t=hywqf4HUUvK3AsKZ-1" class="btn btn-link text-decoration-none">&lt;/Link&gt;</a>
-                            <a class="btn btn-link text-decoration-none" onclick="togglePopup('washpro')">&lt;/About&gt;</a>
+                        <div class="col-md-4 text-md-end mt-2 mt-md-0">
+                            <a href="https://www.figma.com/proto/Ad41H318DdlVh0lmYWduyH/WashPro?node-id=38-0&t=hywqf4HUUvK3AsKZ-1" class="btn btn-link text-decoration-none p-1">&lt;/Link&gt;</a>
+                            <a class="btn btn-link text-decoration-none p-1" onclick="togglePopup('washpro')">&lt;/About&gt;</a>
                         </div>
                     </div>
                 </div>
-                 <div class="list-group-item project-item">
+                 <div class="list-group-item project-item py-4">
                     <div class="row align-items-center">
                         <div class="col-md-8">
                             <div class="text-secondary text-uppercase small">Capstone Project 2023 - 2024</div>
-                            <div class="h4 fw-bold text-dark">TraineeCheck</div>
+                            <div class="h4 fw-bold text-dark mb-0">TraineeCheck</div>
                         </div>
-                        <div class="col-md-4 text-md-end">
-                            <a class="btn btn-link text-decoration-none" onclick="togglePopup('traineecheck')">&lt;/About&gt;</a>
+                        <div class="col-md-4 text-md-end mt-2 mt-md-0">
+                            <a class="btn btn-link text-decoration-none p-1" onclick="togglePopup('traineecheck')">&lt;/About&gt;</a>
                         </div>
                     </div>
                 </div>
-                 <div class="list-group-item project-item">
+                 <div class="list-group-item project-item py-4">
                     <div class="row align-items-center">
                         <div class="col-md-8">
                             <div class="text-secondary text-uppercase small">3rd Year Project 2023 - 2024</div>
-                            <div class="h4 fw-bold text-dark">Pinnacle Jump</div>
+                            <div class="h4 fw-bold text-dark mb-0">Pinnacle Jump</div>
                         </div>
-                        <div class="col-md-4 text-md-end">
-                            <a class="btn btn-link text-decoration-none" onclick="togglePopup('pinnaclejump')">&lt;/About&gt;</a>
+                        <div class="col-md-4 text-md-end mt-2 mt-md-0">
+                            <a class="btn btn-link text-decoration-none p-1" onclick="togglePopup('pinnaclejump')">&lt;/About&gt;</a>
                         </div>
                     </div>
                 </div>
@@ -302,43 +327,45 @@
         </section>
     </div>
     
-    <section id="contact" class="contact-section mt-5 py-5">
-        <div class="container text-center">
-             <h2 class="display-3 fw-bold text-white mb-5 pb-5 text-center text-md-start">"Get in touch."</h2>
-             <div class="d-flex flex-column align-items-center gap-5">
-                 <button class="contact-circle" onclick="window.open('https://mail.google.com/mail/?view=cm&to=antongabrielbertillo@gmail.com')" aria-label="Email me">
-                     <div class="contact-indicator"></div>
-                 </button>
-                 <div class="contact-divider"></div>
-                 <div class="bottom-text" style="color: #706f6f; font-weight: bold;">Email me</div>
-             </div>
-             <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-5 pt-5 text-white-50">
-                 <p>© 2025 Anton Bertillo</p>
-                 <div class="social-icons">
-                     <a href="https://facebook.com/Ynot.Skie" class="social-icon facebook" target="_blank" aria-label="Facebook">
-                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                     </a>
-                     <a href="https://github.com/ynotskie" class="social-icon github" target="_blank" aria-label="GitHub">
-                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                     </a>
+    <div class="container-fluid g-0">
+        <section id="contact" class="contact-section mt-5 py-5">
+            <div class="container text-center">
+                 <h2 class="display-3 fw-bold text-white mb-5 pb-5 text-center text-md-start">"Get in touch."</h2>
+                 <div class="d-flex flex-column align-items-center gap-5">
+                     <button class="contact-circle" onclick="window.open('https://mail.google.com/mail/?view=cm&to=antongabrielbertillo@gmail.com')" aria-label="Email me">
+                         <div class="contact-indicator"></div>
+                     </button>
+                     <div class="contact-divider"></div>
+                     <div class="bottom-text" style="color: #706f6f; font-weight: bold;">Email me</div>
                  </div>
-             </div>
-        </div>
-    </section>
+                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-5 pt-5 text-white-50">
+                     <p>© 2025 Anton Bertillo</p>
+                     <div class="d-flex gap-3">
+                         <a href="https://facebook.com/Ynot.Skie" class="social-icon facebook" target="_blank" aria-label="Facebook">
+                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                         </a>
+                         <a href="https://github.com/ynotskie" class="social-icon github" target="_blank" aria-label="GitHub">
+                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                         </a>
+                     </div>
+                 </div>
+            </div>
+        </section>
+    </div>
     
-    <div id="washpro" class="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000; max-width: 500px;">
+    <div id="washpro" class="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1050; max-width: 500px;">
         <h3>WashPro</h3>
         <p>A mobile app for laundry service that helps users find nearby laundry shops, schedule pickups, and track their orders.</p>
         <p><strong>Technologies used:</strong> Flutter, Figma</p>
         <button onclick="togglePopup('washpro')" class="btn btn-secondary mt-2">Close</button>
     </div>
-     <div id="traineecheck" class="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000; max-width: 500px;">
+     <div id="traineecheck" class="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1050; max-width: 500px;">
         <h3>TraineeCheck</h3>
         <p>A web-based tracking system for On-the-Job Training designed to monitor student trainees' attendance and progress.</p>
         <p><strong>Technologies used:</strong> Flutter, Firebase, HTML, CSS, JavaScript</p>
         <button onclick="togglePopup('traineecheck')" class="btn btn-secondary mt-2">Close</button>
     </div>
-     <div id="pinnaclejump" class="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000; max-width: 500px;">
+     <div id="pinnaclejump" class="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1050; max-width: 500px;">
         <h3>Pinnacle Jump</h3>
         <p>A 2D platformer game created in Unity.</p>
         <p><strong>Technologies used:</strong> C#, Unity</p>
@@ -350,6 +377,7 @@
         // Generate circular dot pattern
         function createDotCircle() {
             const container = document.getElementById('dotCircle');
+            if (!container) return;
             const radius = 120;
             const centerX = 150;
             const centerY = 150;
@@ -389,7 +417,9 @@
 
         function togglePopup(id) {
             const popup = document.getElementById(id);
-            popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
+            if(popup) {
+                popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
+            }
         }
     </script>
 </body>
